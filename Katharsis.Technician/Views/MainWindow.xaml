@@ -4,9 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Katharsis.Technician.Views"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:core="clr-namespace:Katharsis.Technician.Core;assembly=Katharsis.Technician.Core"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.TOP_NAVIGATION}"/>
+
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <TreeView prism:RegionManager.RegionName="{x:Static core:RegionNames.SIDE_NAVIGATION}" DockPanel.Dock="Left" Width="200"/>
+
+            <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.CONTENT_REGION}"/>
+        </DockPanel>
     </Grid>
 </Window>

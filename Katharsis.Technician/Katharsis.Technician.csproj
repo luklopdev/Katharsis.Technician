@@ -122,5 +122,23 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Katharsis.Technician.Core\Katharsis.Technician.Core.csproj">
+      <Project>{fc615cef-36b8-401e-a886-7a1954ee159b}</Project>
+      <Name>Katharsis.Technician.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Katharsis.Technician.Modules.Contractors\Katharsis.Technician.Modules.Contractors.csproj">
+      <Project>{cf96c567-c77f-4b40-9d1e-f2cf3c810e30}</Project>
+      <Name>Katharsis.Technician.Modules.Contractors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Katharsis.Technician.Modules.Mail\Katharsis.Technician.Modules.Mail.csproj">
+      <Project>{b4dfb3bb-e373-4f30-a07e-6e945bfa2614}</Project>
+      <Name>Katharsis.Technician.Modules.Mail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Katharsis.Technician.Modules.Repairs\Katharsis.Technician.Modules.Repairs.csproj">
+      <Project>{2f35444d-f238-4e6b-8180-29bebd5dbddf}</Project>
+      <Name>Katharsis.Technician.Modules.Repairs</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

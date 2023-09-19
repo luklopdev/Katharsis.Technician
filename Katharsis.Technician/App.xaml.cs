@@ -1,4 +1,5 @@
-﻿using Katharsis.Technician.Views;
+﻿using Katharsis.Technician.Modules.Mail;
+using Katharsis.Technician.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
