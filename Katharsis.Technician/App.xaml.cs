@@ -1,5 +1,6 @@
 ﻿using Katharsis.Technician.Views;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace Katharsis.Technician
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<MailModule>();
         }
     }
 }
