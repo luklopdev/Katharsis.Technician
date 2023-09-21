@@ -17,7 +17,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.TOP_NAVIGATION}"/>
+        <TabControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.TOP_NAVIGATION}"/>
 
         <DockPanel Grid.Row="1" LastChildFill="True">
             <TreeView prism:RegionManager.RegionName="{x:Static core:RegionNames.SIDE_NAVIGATION}" DockPanel.Dock="Left" Width="200"/>

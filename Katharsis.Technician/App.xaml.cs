@@ -1,4 +1,5 @@
-﻿using Katharsis.Technician.Modules.Mail;
+﻿using Katharsis.Technician.Modules.Contractors;
+using Katharsis.Technician.Modules.Mail;
 using Katharsis.Technician.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -31,6 +32,7 @@ namespace Katharsis.Technician
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             moduleCatalog.AddModule<MailModule>();
+            moduleCatalog.AddModule<ContractorsModule>();
         }
     }
 }
