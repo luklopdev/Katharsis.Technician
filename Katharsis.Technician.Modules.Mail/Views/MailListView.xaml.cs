@@ -1,5 +1,4 @@
-﻿using Katharsis.Technician.Core.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Katharsis.Technician.Modules.Mail.Menus
+namespace Katharsis.Technician.Modules.Mail.Views
 {
     /// <summary>
-    /// Interaction logic for MailGroup.xaml
+    /// Interaction logic for MailListView.xaml
     /// </summary>
-    public partial class MailGroup : TabItem, ITabItem
+    public partial class MailListView : UserControl
     {
-        public MailGroup()
+        public MailListView()
         {
             InitializeComponent();
         }
-
-        public string DefaultNavigationPath => "MailListView";
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Katharsis.Technician.Core;
 using Katharsis.Technician.Modules.Contractors.Menus;
+using Katharsis.Technician.Modules.Contractors.ViewModels;
+using Katharsis.Technician.Modules.Contractors.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -27,7 +29,7 @@ namespace Katharsis.Technician.Modules.Contractors
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            containerRegistry.RegisterForNavigation<ViewA, ViewAViewModel>();
         }
     }
 }

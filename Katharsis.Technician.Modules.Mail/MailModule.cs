@@ -1,8 +1,10 @@
 ﻿using Katharsis.Technician.Core;
 using Katharsis.Technician.Modules.Mail.Menus;
+using Katharsis.Technician.Modules.Mail.ViewModels;
 using Katharsis.Technician.Modules.Mail.Views;
 using Prism.Ioc;
 using Prism.Modularity;
+using Prism.Mvvm;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -24,7 +26,7 @@ namespace Katharsis.Technician.Modules.Mail
         public void OnInitialized(IContainerProvider containerProvider)
         {
             // TODO: NAVIGATION
-            _regionManager.RegisterViewWithRegion(RegionNames.CONTENT_REGION, typeof(ViewA));
+            //_regionManager.RegisterViewWithRegion(RegionNames.CONTENT_REGION, typeof(ViewA));
 
 
             _regionManager.RegisterViewWithRegion(RegionNames.TOP_NAVIGATION, typeof(HomeTab));
@@ -33,7 +35,9 @@ namespace Katharsis.Technician.Modules.Mail
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            ViewModelLocationProvider.Register<MailGroup, MailGroupViewModel>();
+
+            containerRegistry.RegisterForNavigation<MailListView, MailListViewModel>();
         }
     }
 }

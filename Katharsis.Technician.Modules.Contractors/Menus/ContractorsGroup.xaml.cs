@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Katharsis.Technician.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,13 @@ namespace Katharsis.Technician.Modules.Contractors.Menus
     /// <summary>
     /// Interaction logic for ContactsGroup.xaml
     /// </summary>
-    public partial class ContractorsGroup : TreeViewItem
+    public partial class ContractorsGroup : TabItem, ITabItem
     {
         public ContractorsGroup()
         {
             InitializeComponent();
         }
+
+        public string DefaultNavigationPath => "ViewA";
     }
 }

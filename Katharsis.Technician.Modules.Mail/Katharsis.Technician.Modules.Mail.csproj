@@ -78,8 +78,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Views\ViewA.xaml.cs">
-      <DependentUpon>ViewA.xaml</DependentUpon>
+    <Compile Include="ViewModels\MailGroupViewModel.cs" />
+    <Compile Include="ViewModels\MailListViewModel.cs" />
+    <Compile Include="Views\MailListView.xaml.cs">
+      <DependentUpon>MailListView.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +94,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Katharsis.Technician.Business\Katharsis.Technician.Business.csproj">
+      <Project>{A2B88ABB-907D-41E7-9BA6-8E3A5935B59D}</Project>
+      <Name>Katharsis.Technician.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Katharsis.Technician.Core\Katharsis.Technician.Core.csproj">
       <Project>{fc615cef-36b8-401e-a886-7a1954ee159b}</Project>
       <Name>Katharsis.Technician.Core</Name>
@@ -106,7 +112,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ViewA.xaml">
+    <Page Include="Views\MailListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

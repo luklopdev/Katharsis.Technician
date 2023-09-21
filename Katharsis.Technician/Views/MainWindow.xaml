@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Katharsis.Technician.Views"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:core="clr-namespace:Katharsis.Technician.Core;assembly=Katharsis.Technician.Core"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -17,12 +18,34 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TabControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.TOP_NAVIGATION}"/>
+        <TabControl 
+            Grid.Row="0" 
+            prism:RegionManager.RegionName="{x:Static core:RegionNames.TOP_NAVIGATION}"/>
 
-        <DockPanel Grid.Row="1" LastChildFill="True">
-            <TreeView prism:RegionManager.RegionName="{x:Static core:RegionNames.SIDE_NAVIGATION}" DockPanel.Dock="Left" Width="200"/>
+        <DockPanel 
+            Grid.Row="1" 
+            LastChildFill="True">
+            
+            <TabControl x:Name="groupControl" 
+                        prism:RegionManager.RegionName="{x:Static core:RegionNames.SIDE_NAVIGATION}" 
+                        DockPanel.Dock="Left" Width="200">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="SelectionChanged">
+                        <b:InvokeCommandAction 
+                            Command="{Binding GroupSelectionChangedCommand}" 
+                            CommandParameter="{Binding SelectedItem, ElementName=groupControl}"/>
+                    </b:EventTrigger>
+                    <b:EventTrigger EventName="Loaded">
+                        <b:InvokeCommandAction 
+                            Command="{Binding GroupLoadedCommand}" 
+                            CommandParameter="{Binding SelectedItem, ElementName=groupControl}"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </TabControl>
 
-            <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.CONTENT_REGION}"/>
+            <ContentControl 
+                prism:RegionManager.RegionName="{x:Static core:RegionNames.CONTENT_REGION}"/>
+            
         </DockPanel>
     </Grid>
 </Window>

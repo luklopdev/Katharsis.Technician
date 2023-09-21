@@ -1,12 +1,20 @@
-﻿<TreeViewItem x:Class="Katharsis.Technician.Modules.Mail.Menus.MailGroup"
+﻿<TabItem x:Class="Katharsis.Technician.Modules.Mail.Menus.MailGroup"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Katharsis.Technician.Modules.Mail.Menus"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Header="Mail">
-    <Grid>
-        <TextBlock Text="Test"/>
-    </Grid>
-</TreeViewItem>
+              xmlns:prism="http://prismlibrary.com/"
+              prism:ViewModelLocator.AutoWireViewModel="True"
+              xmlns:business="clr-namespace:Katharsis.Technician.Business;assembly=Katharsis.Technician.Business"
+             mc:Ignorable="d" Header="Mail">
+
+    <TreeView ItemsSource="{Binding Items}" BorderThickness="0">
+        <TreeView.ItemTemplate>
+            <HierarchicalDataTemplate DataType="{x:Type business:NavigationItem}" ItemsSource="{Binding Items}">
+                <TextBlock Text="{Binding Caption}"/>
+            </HierarchicalDataTemplate>
+        </TreeView.ItemTemplate>
+    </TreeView>
+
+</TabItem>
