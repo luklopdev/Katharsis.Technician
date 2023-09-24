@@ -1,4 +1,5 @@
-﻿using Katharsis.Technician.Modules.Contractors;
+﻿using Katharsis.Technician.Core;
+using Katharsis.Technician.Modules.Contractors;
 using Katharsis.Technician.Modules.Mail;
 using Katharsis.Technician.Modules.Mail.Menus;
 using Katharsis.Technician.Modules.Mail.ViewModels;
@@ -29,6 +30,7 @@ namespace Katharsis.Technician
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

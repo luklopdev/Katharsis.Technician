@@ -1,18 +1,7 @@
-﻿using Katharsis.Technician.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using Katharsis.Technician.Business;
+using Katharsis.Technician.Core.Interfaces;
+using Katharsis.Technician.Modules.Mail.Views;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Katharsis.Technician.Modules.Mail.Menus
 {
@@ -26,6 +15,18 @@ namespace Katharsis.Technician.Modules.Mail.Menus
             InitializeComponent();
         }
 
-        public string DefaultNavigationPath => "MailListView";
+        public string DefaultNavigationPath
+        {
+            get
+            {
+                var item = tv.SelectedItem as NavigationItem;
+                if (item != null)
+                {
+                    return item.NavigationPath;
+                }
+
+                return nameof(MailListView);
+            }
+        }
     }
 }

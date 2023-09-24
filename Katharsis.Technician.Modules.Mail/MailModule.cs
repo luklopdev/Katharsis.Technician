@@ -25,11 +25,6 @@ namespace Katharsis.Technician.Modules.Mail
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            // TODO: NAVIGATION
-            //_regionManager.RegisterViewWithRegion(RegionNames.CONTENT_REGION, typeof(ViewA));
-
-
-            _regionManager.RegisterViewWithRegion(RegionNames.TOP_NAVIGATION, typeof(HomeTab));
             _regionManager.RegisterViewWithRegion(RegionNames.SIDE_NAVIGATION, typeof(MailGroup));
         }
 

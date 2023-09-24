@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using Katharsis.Technician.Core;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Katharsis.Technician.Modules.Contractors.ViewModels
 {
-    internal class ViewAViewModel : BindableBase
+    internal class ViewAViewModel : ViewModelBase
     {
     }
 }

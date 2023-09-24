@@ -11,9 +11,10 @@ using System.Threading.Tasks;
 
 namespace Katharsis.Technician.ViewModels
 {
-    internal class MainWindowViewModel : BindableBase
+    internal class MainWindowViewModel : ViewModelBase
     {
-        private readonly IRegionManager _regionManager;
+        private readonly IApplicationCommands _applicationCommands;
+        private readonly IRegionManager _regionManger;
 
         private DelegateCommand<string> _navigateCommand;
         public DelegateCommand<string> NavigateCommand =>
@@ -27,9 +28,12 @@ namespace Katharsis.Technician.ViewModels
         public DelegateCommand<ITabItem> GroupLoadedCommand =>
             _groupLoadedCommand ?? (_groupLoadedCommand = new DelegateCommand<ITabItem>(ExecuteGroupSelectionChangedCommand));
 
-        public MainWindowViewModel(IRegionManager regionManager)
+        public MainWindowViewModel(IApplicationCommands applicationCommands, IRegionManager regionManger)
         {
-            _regionManager = regionManager;   
+            _applicationCommands = applicationCommands;
+            _applicationCommands.NavigateCommand.RegisterCommand(NavigateCommand);
+            _regionManger = regionManger;
+
         }
 
         void ExecuteNavigateCommand(string navigationPath)
@@ -37,14 +41,14 @@ namespace Katharsis.Technician.ViewModels
             if(string.IsNullOrEmpty(navigationPath))
                 throw new ArgumentNullException(nameof(navigationPath));
 
-            _regionManager.RequestNavigate(RegionNames.CONTENT_REGION, navigationPath);
+            _regionManger.RequestNavigate(RegionNames.CONTENT_REGION, navigationPath);
         }
 
         void ExecuteGroupSelectionChangedCommand(ITabItem group)
         {
             if(group != null)
             {
-                _regionManager.RequestNavigate(RegionNames.CONTENT_REGION, group.DefaultNavigationPath);
+                _applicationCommands.NavigateCommand.Execute(group.DefaultNavigationPath);
             }
         }
     }
