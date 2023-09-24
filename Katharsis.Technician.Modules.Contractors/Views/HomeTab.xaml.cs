@@ -1,5 +1,4 @@
-﻿using Katharsis.Technician.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +16,11 @@ using System.Windows.Shapes;
 namespace Katharsis.Technician.Modules.Contractors.Views
 {
     /// <summary>
-    /// Interaction logic for ViewA.xaml
+    /// Interaction logic for HomeTab.xaml
     /// </summary>
-    [DependentView(RegionNames.TOP_NAVIGATION, typeof(HomeTab))]
-    public partial class ViewA : UserControl
+    public partial class HomeTab : TabItem
     {
-        public ViewA()
+        public HomeTab()
         {
             InitializeComponent();
         }
