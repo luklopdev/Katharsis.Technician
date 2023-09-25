@@ -1,19 +1,12 @@
 ﻿using Katharsis.Technician.Core;
 using Katharsis.Technician.Modules.Contractors;
 using Katharsis.Technician.Modules.Mail;
-using Katharsis.Technician.Modules.Mail.Menus;
-using Katharsis.Technician.Modules.Mail.ViewModels;
+using Katharsis.Technician.Regions;
 using Katharsis.Technician.Views;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Mvvm;
+using Prism.Regions;
 using Prism.Unity;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Katharsis.Technician
@@ -37,6 +30,13 @@ namespace Katharsis.Technician
         {
             moduleCatalog.AddModule<MailModule>();
             moduleCatalog.AddModule<ContractorsModule>();
+        }
+
+        protected override void ConfigureDefaultRegionBehaviors(IRegionBehaviorFactory regionBehaviors)
+        {
+            base.ConfigureDefaultRegionBehaviors(regionBehaviors);
+
+            regionBehaviors.AddIfMissing(DependentViewRegionBehavior.BEHAVIOR_KEY, typeof(DependentViewRegionBehavior));
         }
     }
 }
