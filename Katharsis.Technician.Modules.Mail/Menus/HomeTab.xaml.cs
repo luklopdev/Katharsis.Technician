@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Katharsis.Technician.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Katharsis.Technician.Modules.Mail.Menus
     /// <summary>
     /// Interaction logic for HomeTab.xaml
     /// </summary>
-    public partial class HomeTab : TabItem
+    public partial class HomeTab : TabItem, ISupportDataContext
     {
         public HomeTab()
         {

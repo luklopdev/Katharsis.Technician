@@ -1,4 +1,5 @@
 ﻿using Katharsis.Technician.Core;
+using Katharsis.Technician.Core.Interfaces;
 using Prism.Ioc;
 using Prism.Regions;
 using System;
@@ -33,25 +34,31 @@ namespace Katharsis.Technician.Regions
         {
             if(e.Action == NotifyCollectionChangedAction.Add)
             {
-                foreach(var view in e.NewItems)
+                foreach(var newView in e.NewItems)
                 {
                     var dependentViews = new List<DependentViewInfo>();
 
-                    if (_dependentViewCache.ContainsKey(view))
+                    if (_dependentViewCache.ContainsKey(newView))
                     {
-                        dependentViews = _dependentViewCache[view];
+                        dependentViews = _dependentViewCache[newView];
                     }
                     else
                     {
-                        var attributes = GetCustomAttributes<DependentViewAttribute>(view.GetType());
+                        var attributes = GetCustomAttributes<DependentViewAttribute>(newView.GetType());
 
                         foreach (var attribute in attributes)
                         {
                             var info = CreateDependentViewInfo(attribute);
+
+                            if(info.View is ISupportDataContext infoDc && newView is ISupportDataContext viewDC)
+                            {
+                                infoDc.DataContext = viewDC.DataContext;
+                            }
+
                             dependentViews.Add(info);
                         }
 
-                        _dependentViewCache.Add(view, dependentViews);
+                        _dependentViewCache.Add(newView, dependentViews);
                     }
 
                     bool firstTabItemSelected = false;

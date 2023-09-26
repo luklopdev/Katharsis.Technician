@@ -25,7 +25,7 @@ namespace Katharsis.Technician.Modules.Mail.Menus
                     return item.NavigationPath;
                 }
 
-                return nameof(MailListView);
+                return $"{nameof(MailListView)}?id=Default";
             }
         }
     }
