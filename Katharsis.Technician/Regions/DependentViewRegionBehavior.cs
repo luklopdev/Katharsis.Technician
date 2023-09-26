@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Katharsis.Technician.Regions
 {
@@ -53,7 +54,20 @@ namespace Katharsis.Technician.Regions
                         _dependentViewCache.Add(view, dependentViews);
                     }
 
-                    dependentViews.ForEach(item => Region.RegionManager.Regions[item.Region].Add(item.View));
+                    bool firstTabItemSelected = false;
+                    dependentViews.ForEach(item => 
+                    {
+                        Region.RegionManager.Regions[item.Region].Add(item.View);
+
+                        if (!firstTabItemSelected)
+                        {
+                            if (item.View is TabItem tabItem)
+                            {
+                                tabItem.IsSelected = true;
+                                firstTabItemSelected = true;
+                            }
+                        }
+                    });
                 }
             }
             else if(e.Action == NotifyCollectionChangedAction.Remove)
@@ -77,6 +91,9 @@ namespace Katharsis.Technician.Regions
         private bool ShouldKeepAlive(object oldView)
         {
             var regionLifetime = GetViewOrDataContextLifetime(oldView);
+
+            if (regionLifetime != null)
+                return regionLifetime.KeepAlive;
 
             return true;
         }
@@ -110,11 +127,5 @@ namespace Katharsis.Technician.Regions
         {
             return type.GetCustomAttributes(typeof(T), true).OfType<T>();
         }
-    }
-
-    public class DependentViewInfo
-    {
-        public object View { get; set; }
-        public string Region { get; set; }
     }
 }
