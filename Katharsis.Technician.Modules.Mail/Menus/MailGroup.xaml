@@ -19,7 +19,7 @@
                  CommandParameter="{Binding SelectedItem, ElementName=tv}"/>
             </b:EventTrigger>
         </b:Interaction.Triggers>
-        
+
         <TreeView.ItemTemplate>
             <HierarchicalDataTemplate DataType="{x:Type business:NavigationItem}" ItemsSource="{Binding Items}">
                 <TextBlock Text="{Binding Caption}"/>

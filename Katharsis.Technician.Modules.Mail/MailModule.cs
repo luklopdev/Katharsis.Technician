@@ -2,6 +2,8 @@
 using Katharsis.Technician.Modules.Mail.Menus;
 using Katharsis.Technician.Modules.Mail.ViewModels;
 using Katharsis.Technician.Modules.Mail.Views;
+using Katharsis.Technician.Services;
+using Katharsis.Technician.Services.Interfaces;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Mvvm;
@@ -33,6 +35,8 @@ namespace Katharsis.Technician.Modules.Mail
             ViewModelLocationProvider.Register<MailGroup, MailGroupViewModel>();
 
             containerRegistry.RegisterForNavigation<MailListView, MailListViewModel>();
+
+            containerRegistry.RegisterSingleton<IMailService, MailService>();
         }
     }
 }

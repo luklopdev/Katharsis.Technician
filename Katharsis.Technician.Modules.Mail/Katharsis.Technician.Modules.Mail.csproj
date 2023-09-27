@@ -102,6 +102,14 @@
       <Project>{fc615cef-36b8-401e-a886-7a1954ee159b}</Project>
       <Name>Katharsis.Technician.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Katharsis.Technician.Services.Interfaces\Katharsis.Technician.Services.Interfaces.csproj">
+      <Project>{c004da3e-822a-4309-a5ea-0b8100b0d41c}</Project>
+      <Name>Katharsis.Technician.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Katharsis.Technician.Services\Katharsis.Technician.Services.csproj">
+      <Project>{7b325e98-5699-4ef7-9752-3bbe251776d3}</Project>
+      <Name>Katharsis.Technician.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Menus\HomeTab.xaml">

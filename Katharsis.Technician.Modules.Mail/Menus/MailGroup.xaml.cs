@@ -1,6 +1,8 @@
 ﻿using Katharsis.Technician.Business;
 using Katharsis.Technician.Core.Interfaces;
+using Katharsis.Technician.Modules.Mail.ViewModels;
 using Katharsis.Technician.Modules.Mail.Views;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace Katharsis.Technician.Modules.Mail.Menus
@@ -25,7 +27,7 @@ namespace Katharsis.Technician.Modules.Mail.Menus
                     return item.NavigationPath;
                 }
 
-                return $"{nameof(MailListView)}?id=Default";
+                return $"{nameof(MailListView)}?{FolderParameters.FOLDER_KEY}={FolderParameters.INBOX}";
             }
         }
     }

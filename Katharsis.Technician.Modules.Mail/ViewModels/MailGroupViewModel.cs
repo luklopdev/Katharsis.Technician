@@ -1,5 +1,6 @@
 ﻿using Katharsis.Technician.Business;
 using Katharsis.Technician.Core;
+using Katharsis.Technician.Modules.Mail.Properties;
 using Katharsis.Technician.Modules.Mail.Views;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -45,12 +46,26 @@ namespace Katharsis.Technician.Modules.Mail.ViewModels
         {
             Items = new ObservableCollection<NavigationItem>();
 
-            var root = new NavigationItem() { Caption = "Personal Folder", NavigationPath = $"{nameof(MailListView)}?id=Default" };
-            root.Items.Add(new NavigationItem() { Caption = "Inbox", NavigationPath = $"{nameof(MailListView)}?id=Inbox" });
-            root.Items.Add(new NavigationItem() { Caption = "Deleted", NavigationPath = $"{nameof(MailListView)}?id=Deleted" });
-            root.Items.Add(new NavigationItem() { Caption = "Sent", NavigationPath = $"{nameof(MailListView)}?id=Sent" });
+            var root = new NavigationItem() { Caption = "Personal Folder", NavigationPath = $"{nameof(MailListView)}?folder=Default", IsExpanded = true };
+            root.Items.Add(new NavigationItem() { Caption = Resources.Folder_Inbox, NavigationPath = GetNavigationPath(FolderParameters.INBOX) });
+            root.Items.Add(new NavigationItem() { Caption = Resources.Folder_Deleted, NavigationPath = GetNavigationPath(FolderParameters.DELETED) });
+            root.Items.Add(new NavigationItem() { Caption = Resources.Folder_Sent, NavigationPath = GetNavigationPath(FolderParameters.SENT) });
 
             Items.Add(root);
         }
+
+        string GetNavigationPath(string folder)
+        {
+            return $"{nameof(MailListView)}?{FolderParameters.FOLDER_KEY}={folder}";
+        }
+    }
+
+    public class FolderParameters
+    {
+        public const string FOLDER_KEY = "Folder";
+
+        public const string INBOX = "Inbox";
+        public const string SENT = "Sent";
+        public const string DELETED = "Deleted";
     }
 }

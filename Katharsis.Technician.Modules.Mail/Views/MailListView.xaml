@@ -9,16 +9,29 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid>
-            
+        <DataGrid Background="White" Margin="5,0,0,0" ItemsSource="{Binding Messages}" 
+                  IsReadOnly="True" AutoGenerateColumns="False" SelectedItem="{Binding SelectedMessage}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="From" Binding="{Binding From}" Width="auto"/>
+                <DataGridTextColumn Header="Subject" Binding="{Binding Subject}" Width="auto"/>
+                <DataGridTextColumn Header="DateSent" Binding="{Binding DateSent}" Width="*"/>
+            </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Grid.Column="1" MinWidth="250" Background="blue">
-            <!--Form-->
+        <GridSplitter Grid.Column="0" Width="5" HorizontalAlignment="Right"/>
+        
+        <Grid Grid.Column="1" Margin="5,0,0,0" Background="White">
+            <StackPanel>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.From}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.To}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.CC}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.Subject}"/>
+                <TextBlock Margin="5" Text="{Binding SelectedMessage.Body}"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>

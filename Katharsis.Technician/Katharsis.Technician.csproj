@@ -141,6 +141,10 @@
       <Project>{2f35444d-f238-4e6b-8180-29bebd5dbddf}</Project>
       <Name>Katharsis.Technician.Modules.Repairs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Katharsis.Technician.Services.Interfaces\Katharsis.Technician.Services.Interfaces.csproj">
+      <Project>{c004da3e-822a-4309-a5ea-0b8100b0d41c}</Project>
+      <Name>Katharsis.Technician.Services.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

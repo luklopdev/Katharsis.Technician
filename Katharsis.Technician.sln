@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katharsis.Technician.Module
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katharsis.Technician.Business", "Katharsis.Technician.Business\Katharsis.Technician.Business.csproj", "{A2B88ABB-907D-41E7-9BA6-8E3A5935B59D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katharsis.Technician.Services", "Katharsis.Technician.Services\Katharsis.Technician.Services.csproj", "{7B325E98-5699-4EF7-9752-3BBE251776D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katharsis.Technician.Services.Interfaces", "Katharsis.Technician.Services.Interfaces\Katharsis.Technician.Services.Interfaces.csproj", "{C004DA3E-822A-4309-A5EA-0B8100B0D41C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{A2B88ABB-907D-41E7-9BA6-8E3A5935B59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2B88ABB-907D-41E7-9BA6-8E3A5935B59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2B88ABB-907D-41E7-9BA6-8E3A5935B59D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B325E98-5699-4EF7-9752-3BBE251776D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B325E98-5699-4EF7-9752-3BBE251776D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B325E98-5699-4EF7-9752-3BBE251776D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B325E98-5699-4EF7-9752-3BBE251776D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C004DA3E-822A-4309-A5EA-0B8100B0D41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C004DA3E-822A-4309-A5EA-0B8100B0D41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C004DA3E-822A-4309-A5EA-0B8100B0D41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C004DA3E-822A-4309-A5EA-0B8100B0D41C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
