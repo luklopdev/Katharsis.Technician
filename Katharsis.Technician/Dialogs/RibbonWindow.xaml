@@ -1,0 +1,21 @@
+﻿<Window x:Class="Katharsis.Technician.Dialogs.RibbonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Katharsis.Technician.Dialogs"
+        xmlns:core="clr-namespace:Katharsis.Technician.Core;assembly=Katharsis.Technician.Core"
+        xmlns:prism="http://prismlibrary.com/"
+        mc:Ignorable="d"
+        Title="RibbonWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="a"/>
+
+        <!--<TabControl 
+            prism:RegionManager.RegionName="{x:Static core:RegionNames.TOP_NAVIGATION}"/>
+
+        <ContentControl 
+            prism:RegionManager.RegionName="{x:Static core:RegionNames.CONTENT_REGION}"/>-->
+
+    </Grid>
+</Window>

@@ -1,5 +1,6 @@
 ﻿using Katharsis.Technician.Business;
 using Katharsis.Technician.Core;
+using Katharsis.Technician.Modules.Mail.Views;
 using Katharsis.Technician.Services.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -18,6 +19,9 @@ namespace Katharsis.Technician.Modules.Mail.ViewModels
     public class MailListViewModel : ViewModelBase
     {
         private readonly IMailService _mailService;
+        private readonly IDialogService _dialogService;
+
+        internal EventHandler LoadBodyMessage { get; set; }
 
         private ObservableCollection<MailMessage> _messages;
         public ObservableCollection<MailMessage> Messages
@@ -33,9 +37,18 @@ namespace Katharsis.Technician.Modules.Mail.ViewModels
             set => SetProperty(ref _selectedMessage, value);
         }
 
-        public MailListViewModel(IMailService mailService)
+        private DelegateCommand _mailSelectionChangedCommand;
+        public DelegateCommand MailSelectionChangedCommand =>
+            _mailSelectionChangedCommand ?? (_mailSelectionChangedCommand = new DelegateCommand(ExecuteMailSelectionChangedCommand));
+
+        private DelegateCommand<string> _messageCommand;
+        public DelegateCommand<string> MessageCommand =>
+            _messageCommand ?? (_messageCommand = new DelegateCommand<string>(ExecuteMessageCommand));
+
+        public MailListViewModel(IMailService mailService, IDialogService dialogService)
         {
             _mailService = mailService;
+            _dialogService = dialogService;
             //Messages
         }
 
@@ -56,6 +69,16 @@ namespace Katharsis.Technician.Modules.Mail.ViewModels
                 default:
                     break;
             }
+        }
+
+        void ExecuteMailSelectionChangedCommand()
+        {
+            LoadBodyMessage.Invoke(this, null);
+        }
+
+        void ExecuteMessageCommand(string message)
+        {
+            _dialogService.Show(nameof(MessageView));
         }
     }
 }

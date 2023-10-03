@@ -9,6 +9,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Width="50" Content="Mail"/>
+        <Button Grid.Column="0" Width="50" Content="Mail" Command="{Binding MessageCommand}"/>
     </Grid>
 </TabItem>

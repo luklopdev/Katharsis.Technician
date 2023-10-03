@@ -37,6 +37,8 @@ namespace Katharsis.Technician.Modules.Mail
             containerRegistry.RegisterForNavigation<MailListView, MailListViewModel>();
 
             containerRegistry.RegisterSingleton<IMailService, MailService>();
+
+            containerRegistry.RegisterDialog<MessageView, MessageViewModel>();
         }
     }
 }

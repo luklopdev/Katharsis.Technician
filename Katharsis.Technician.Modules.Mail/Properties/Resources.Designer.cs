@@ -86,5 +86,15 @@ namespace Katharsis.Technician.Modules.Mail.Properties {
                 return ResourceManager.GetString("Folder_Sent", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap l60Hf {
+            get {
+                object obj = ResourceManager.GetObject("l60Hf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
