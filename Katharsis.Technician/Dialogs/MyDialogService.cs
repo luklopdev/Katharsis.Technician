@@ -1,4 +1,5 @@
 ﻿using Katharsis.Technician.Core;
+using Katharsis.Technician.Core.Interfaces;
 using Katharsis.Technician.Modules.Mail.Views;
 using Prism.Ioc;
 using Prism.Regions;
@@ -12,23 +13,20 @@ using System.Windows;
 
 namespace Katharsis.Technician.Dialogs
 {
-    public class MyDialogService : DialogService
+    public class MyDialogService : IMyDialogService
     {
         private readonly IRegionManager _regionManager;
+        private readonly IContainerExtension _containerExtension;
 
-        public MyDialogService(IContainerExtension containerExtension, IRegionManager regionManager) : base(containerExtension)
+        public MyDialogService(IContainerExtension containerExtension, IRegionManager regionManager)
         {
             _regionManager = regionManager;
+            _containerExtension = containerExtension;
         }
 
-        protected override void ConfigureDialogWindowContent(string dialogName, IDialogWindow window, IDialogParameters parameters)
+        public void Show(string name)
         {
-            base.ConfigureDialogWindowContent(dialogName, window, parameters);
-
-            var regionManager = _regionManager.CreateRegionManager();
-            RegionManager.SetRegionManager((DependencyObject)window, regionManager);
-
-            regionManager.RequestNavigate(RegionNames.CONTENT_REGION, nameof(MessageView));
+            
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Katharsis.Technician.Core;
+using Katharsis.Technician.Core.Interfaces;
 using Katharsis.Technician.Dialogs;
 using Katharsis.Technician.Modules.Contractors;
 using Katharsis.Technician.Modules.Mail;
@@ -25,10 +26,8 @@ namespace Katharsis.Technician
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IDialogService, MyDialogService>();
+            //containerRegistry.RegisterSingleton<IMyDialogService, MyDialogService>();
             containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
-
-            containerRegistry.RegisterDialogWindow<RibbonWindow>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

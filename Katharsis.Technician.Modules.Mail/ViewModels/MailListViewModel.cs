@@ -1,5 +1,7 @@
 ﻿using Katharsis.Technician.Business;
 using Katharsis.Technician.Core;
+using Katharsis.Technician.Core.Dialogs;
+using Katharsis.Technician.Core.Interfaces;
 using Katharsis.Technician.Modules.Mail.Views;
 using Katharsis.Technician.Services.Interfaces;
 using Prism.Commands;
@@ -78,7 +80,7 @@ namespace Katharsis.Technician.Modules.Mail.ViewModels
 
         void ExecuteMessageCommand(string message)
         {
-            _dialogService.Show(nameof(MessageView));
+            _dialogService.ShowRibbonWindow(nameof(MessageView));
         }
     }
 }

@@ -35,10 +35,11 @@ namespace Katharsis.Technician.Modules.Mail
             ViewModelLocationProvider.Register<MailGroup, MailGroupViewModel>();
 
             containerRegistry.RegisterForNavigation<MailListView, MailListViewModel>();
+            containerRegistry.RegisterForNavigation<MessageView, MessageViewModel>();
 
             containerRegistry.RegisterSingleton<IMailService, MailService>();
 
-            containerRegistry.RegisterDialog<MessageView, MessageViewModel>();
+            //containerRegistry.RegisterDialog<MessageView, MessageViewModel>();
         }
     }
 }
